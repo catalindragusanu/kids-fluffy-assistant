@@ -1,0 +1,1946 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600&display=swap");
+
+:root {
+  --bg: #fdf4ff;
+  --bg2: #fff9e8;
+  --accent: #ff7a59;
+  --accent-2: #2f80ed;
+  --accent-3: #9b51e0;
+  --text: #2b2b2b;
+  --text-muted: #6b6b6b;
+  --card: rgba(255, 255, 255, 0.85);
+  --shadow: 0 20px 50px rgba(43, 27, 87, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Fredoka", "Nunito", "Trebuchet MS", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, #ffe4f3 0%, transparent 55%),
+    radial-gradient(circle at top right, #e0f7ff 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #fff6c7 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #d9f7e6 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  min-height: 100vh;
+  transition: background 0.4s ease;
+}
+
+/* Ocean Breeze Theme */
+body.theme-ocean {
+  --bg: #e0f7ff;
+  --bg2: #c9f0ff;
+  --accent: #2193b0;
+  --accent-2: #6dd5ed;
+  background: radial-gradient(circle at top left, #6dd5ed 0%, transparent 55%),
+    radial-gradient(circle at top right, #a1ffce 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #89f7fe 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #66a6ff 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+/* Sunset Glow Theme */
+body.theme-sunset {
+  --bg: #fff0e6;
+  --bg2: #ffe4d4;
+  --accent: #f5576c;
+  --accent-2: #f093fb;
+  background: radial-gradient(circle at top left, #f093fb 0%, transparent 55%),
+    radial-gradient(circle at top right, #f5576c 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #fda085 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #ff9a9e 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+/* Forest Fresh Theme */
+body.theme-forest {
+  --bg: #e8f5e9;
+  --bg2: #c8e6c9;
+  --accent: #43a047;
+  --accent-2: #66bb6a;
+  background: radial-gradient(circle at top left, #d4fc79 0%, transparent 55%),
+    radial-gradient(circle at top right, #96e6a1 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #84fab0 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #a8ff78 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+/* Space Explorer Theme */
+body.theme-space {
+  --bg: #1a1a2e;
+  --bg2: #16213e;
+  --accent: #4ca1af;
+  --accent-2: #928dab;
+  --text: #e8e8e8;
+  --card: rgba(30, 30, 50, 0.85);
+  --text-muted: #a0a0b0;
+  background: radial-gradient(circle at top left, #302b63 0%, transparent 55%),
+    radial-gradient(circle at top right, #0f2027 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #2c5364 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #1f1c2c 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+/* Robot Zone Theme */
+body.theme-robot {
+  --bg: #2c3e50;
+  --bg2: #1a252f;
+  --accent: #4b79a1;
+  --accent-2: #bdc3c7;
+  --text: #ecf0f1;
+  --card: rgba(40, 50, 60, 0.85);
+  --text-muted: #a0b0c0;
+  background: radial-gradient(circle at top left, #3a6073 0%, transparent 55%),
+    radial-gradient(circle at top right, #606c88 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #536976 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #485563 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+/* Dark theme text overrides */
+body.theme-space,
+body.theme-robot {
+  color: var(--text);
+}
+
+body.theme-space .fluffy-prompt,
+body.theme-robot .fluffy-prompt {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.theme-space .status-pill,
+body.theme-robot .status-pill {
+  background: var(--card);
+  color: var(--text-muted);
+}
+
+body.theme-space .status-pill.active,
+body.theme-robot .status-pill.active {
+  background: rgba(77, 161, 175, 0.3);
+  color: #7dd3e8;
+}
+
+body.theme-space .status-pill.speaking,
+body.theme-robot .status-pill.speaking {
+  background: rgba(255, 180, 100, 0.2);
+  color: #ffc87a;
+}
+
+body.theme-space .profile-hint,
+body.theme-robot .profile-hint,
+body.theme-space .sticker-blurb,
+body.theme-robot .sticker-blurb,
+body.theme-space .stickers-header p,
+body.theme-robot .stickers-header p,
+body.theme-space .memories-header p,
+body.theme-robot .memories-header p {
+  color: var(--text-muted);
+}
+
+body.theme-space .sticker-card,
+body.theme-robot .sticker-card {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.theme-space .sticker-title,
+body.theme-robot .sticker-title {
+  color: var(--text);
+}
+
+body.theme-space .message.user,
+body.theme-robot .message.user {
+  background: rgba(77, 161, 175, 0.3);
+  color: var(--text);
+}
+
+body.theme-space .message.assistant,
+body.theme-robot .message.assistant {
+  background: rgba(50, 60, 80, 0.8);
+  color: var(--text);
+}
+
+body.theme-space .voice-launch,
+body.theme-robot .voice-launch {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.theme-space .voice-button,
+body.theme-robot .voice-button {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+}
+
+body.theme-space .voice-hint,
+body.theme-robot .voice-hint {
+  color: var(--text-muted);
+}
+
+body.theme-space .composer input,
+body.theme-robot .composer input {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(255,255,255,0.1);
+}
+
+body.theme-space .composer input::placeholder,
+body.theme-robot .composer input::placeholder {
+  color: var(--text-muted);
+}
+
+body.theme-space .level-card,
+body.theme-robot .level-card {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.theme-space .level-reward,
+body.theme-robot .level-reward {
+  color: var(--text-muted);
+}
+
+body.theme-space .level-bar,
+body.theme-robot .level-bar {
+  background: rgba(255,255,255,0.1);
+}
+
+body.theme-space .no-memories,
+body.theme-robot .no-memories {
+  color: var(--text-muted);
+}
+
+body.theme-space .memories-section,
+body.theme-robot .memories-section {
+  background: var(--card);
+}
+
+body.theme-space .parent-link-button,
+body.theme-robot .parent-link-button {
+  color: var(--text-muted);
+}
+
+body.theme-space .profile-bar label,
+body.theme-robot .profile-bar label {
+  color: var(--text);
+}
+
+body.theme-space .profile-bar select,
+body.theme-robot .profile-bar select {
+  background: var(--card);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.1);
+}
+
+body.theme-space .hero-copy,
+body.theme-robot .hero-copy {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.theme-space .hero-copy h1,
+body.theme-robot .hero-copy h1 {
+  color: #fff;
+}
+
+body.theme-space .eyebrow,
+body.theme-robot .eyebrow {
+  color: var(--accent);
+}
+
+body.theme-space .subtitle,
+body.theme-robot .subtitle {
+  color: var(--text-muted);
+}
+
+body.theme-space h1,
+body.theme-robot h1,
+body.theme-space h2,
+body.theme-robot h2 {
+  color: var(--text);
+}
+
+body.theme-space .level-header,
+body.theme-robot .level-header {
+  color: var(--text);
+}
+
+body.theme-space #levelLabel,
+body.theme-robot #levelLabel,
+body.theme-space #levelProgressText,
+body.theme-robot #levelProgressText {
+  color: var(--text);
+}
+
+body.theme-space .stickers,
+body.theme-robot .stickers {
+  background: var(--card);
+}
+
+body.theme-space .stickers-header h2,
+body.theme-robot .stickers-header h2 {
+  color: var(--text);
+}
+
+body.theme-space .memories-header h2,
+body.theme-robot .memories-header h2 {
+  color: var(--text);
+}
+
+body.theme-space .chat,
+body.theme-robot .chat {
+  background: var(--card);
+}
+
+body.theme-space .composer,
+body.theme-robot .composer {
+  background: var(--card);
+}
+
+body.theme-space .reward-burst,
+body.theme-robot .reward-burst {
+  color: var(--text);
+  background: var(--card);
+}
+
+body.theme-space .sticker-card.locked .sticker-title,
+body.theme-robot .sticker-card.locked .sticker-title {
+  color: var(--text-muted);
+}
+
+body.theme-space .message.error,
+body.theme-robot .message.error {
+  background: rgba(255, 100, 100, 0.2);
+  color: #ffaaaa;
+}
+
+body.theme-space .settings-hero-card,
+body.theme-robot .settings-hero-card {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.theme-space .settings-hero-card ul,
+body.theme-robot .settings-hero-card ul {
+  color: var(--text-muted);
+}
+
+body.theme-space .mic,
+body.theme-robot .mic {
+  background: var(--card);
+}
+
+body.theme-space .send,
+body.theme-robot .send {
+  background: var(--accent);
+}
+
+/* Settings page dark theme */
+body.theme-space .settings-grid,
+body.theme-robot .settings-grid {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.theme-space .settings-grid input[type="text"],
+body.theme-space .settings-grid input[type="number"],
+body.theme-space .settings-grid textarea,
+body.theme-space .settings-grid select,
+body.theme-robot .settings-grid input[type="text"],
+body.theme-robot .settings-grid input[type="number"],
+body.theme-robot .settings-grid textarea,
+body.theme-robot .settings-grid select {
+  background: rgba(0,0,0,0.2);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.1);
+}
+
+body.theme-space .settings-grid label,
+body.theme-robot .settings-grid label {
+  color: var(--text);
+}
+
+body.theme-space .prompt-label textarea,
+body.theme-robot .prompt-label textarea {
+  background: rgba(0,0,0,0.2);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.1);
+}
+
+body.theme-space .report-grid,
+body.theme-robot .report-grid {
+  background: var(--card);
+  color: var(--text);
+}
+
+/* Dino World Theme */
+body.theme-dino {
+  --bg: #e8f5e9;
+  --bg2: #dcedc8;
+  --accent: #56ab2f;
+  --accent-2: #1d976c;
+  background: radial-gradient(circle at top left, #56ab2f 0%, transparent 55%),
+    radial-gradient(circle at top right, #a8e063 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #11998e 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #38ef7d 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+/* Princess Dream Theme */
+body.theme-princess {
+  --bg: #ffeef8;
+  --bg2: #ffe4f3;
+  --accent: #f5576c;
+  --accent-2: #a18cd1;
+  background: radial-gradient(circle at top left, #ff9a9e 0%, transparent 55%),
+    radial-gradient(circle at top right, #fecfef 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #fbc2eb 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #fad0c4 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+/* Unicorn Magic Theme */
+body.theme-unicorn {
+  --bg: #f3e7ff;
+  --bg2: #e8d4f8;
+  --accent: #a18cd1;
+  --accent-2: #8ec5fc;
+  background: radial-gradient(circle at top left, #a18cd1 0%, transparent 55%),
+    radial-gradient(circle at top right, #fbc2eb 0%, transparent 55%),
+    radial-gradient(circle at bottom left, #e0c3fc 0%, transparent 55%),
+    radial-gradient(circle at bottom right, #89f7fe 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.settings-hero-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.settings-hero-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.settings-hero-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #5b5b5b;
+  font-size: 0.9rem;
+}
+
+.hero-copy {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  color: var(--accent-3);
+  margin: 0 0 8px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2.4rem;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #ffffff;
+  background: var(--accent-2);
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.toggles {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.profile-bar {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.profile-bar label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.profile-bar select {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  font-family: inherit;
+  background: #fff;
+}
+
+.profile-hint {
+  font-size: 0.85rem;
+  color: #6b6b6b;
+}
+
+.app-theme-button {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: 16px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+}
+
+.app-theme-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.app-theme-button:active {
+  transform: scale(0.98);
+}
+
+.parent-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.parent-link-button {
+  text-decoration: none;
+  background: #fff7d6;
+  color: #5a3d00;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-size: 0.9rem;
+}
+
+.fluffy-wrap {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.fluffy {
+  width: 220px;
+  height: 220px;
+  border-radius: 50% 50% 48% 48%;
+  background: radial-gradient(circle at 30% 30%, #fff, #ffd1f5 35%, #ffb3d9 65%, #ff8fcf 100%);
+  position: relative;
+  box-shadow:
+    0 20px 50px rgba(255, 126, 175, 0.35),
+    /* Fluffy fur texture */
+    -12px -8px 0 -4px #ffb3d9,
+    12px -8px 0 -4px #ffb3d9,
+    -18px 0 0 -6px #ffc4e0,
+    18px 0 0 -6px #ffc4e0,
+    -14px 12px 0 -5px #ffb3d9,
+    14px 12px 0 -5px #ffb3d9,
+    0 -14px 0 -4px #ffd1f5,
+    -8px -14px 0 -5px #ffc4e0,
+    8px -14px 0 -5px #ffc4e0;
+  animation: floaty 6s ease-in-out infinite, fluffyBreath 3s ease-in-out infinite, furWiggle 4s ease-in-out infinite;
+  transition: transform 0.2s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Fluffy ears */
+.fluffy::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  background: radial-gradient(circle at 50% 60%, #ffd1f5, #ffb3d9);
+  border-radius: 50% 50% 40% 40%;
+  top: -25px;
+  left: 25px;
+  transform: rotate(-20deg);
+  box-shadow:
+    inset 0 -10px 20px rgba(255, 143, 207, 0.5),
+    -3px -3px 0 -1px #ffc4e0,
+    3px -3px 0 -1px #ffc4e0;
+  animation: earWiggleLeft 4s ease-in-out infinite;
+}
+
+.fluffy::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  background: radial-gradient(circle at 50% 60%, #ffd1f5, #ffb3d9);
+  border-radius: 50% 50% 40% 40%;
+  top: -25px;
+  right: 25px;
+  transform: rotate(20deg);
+  box-shadow:
+    inset 0 -10px 20px rgba(255, 143, 207, 0.5),
+    -3px -3px 0 -1px #ffc4e0,
+    3px -3px 0 -1px #ffc4e0;
+  animation: earWiggleRight 4s ease-in-out infinite;
+}
+
+/* Ocean Fluffy - Water creature */
+body.theme-ocean .fluffy {
+  background: radial-gradient(circle at 30% 30%, #fff, #a1ffce 30%, #6dd5ed 60%, #2193b0 100%);
+  box-shadow:
+    0 20px 50px rgba(33, 147, 176, 0.4),
+    -12px -8px 0 -4px #6dd5ed,
+    12px -8px 0 -4px #6dd5ed,
+    -18px 0 0 -6px #a1ffce,
+    18px 0 0 -6px #a1ffce,
+    -14px 12px 0 -5px #6dd5ed,
+    14px 12px 0 -5px #6dd5ed;
+  animation: floaty 6s ease-in-out infinite, oceanWave 4s ease-in-out infinite, fluffyBreath 3s ease-in-out infinite;
+}
+
+body.theme-ocean .fluffy::before,
+body.theme-ocean .fluffy::after {
+  background: radial-gradient(circle at 50% 60%, #a1ffce, #6dd5ed);
+  box-shadow: inset 0 -10px 20px rgba(33, 147, 176, 0.5);
+}
+
+body.theme-ocean .fluffy-face::before {
+  background: radial-gradient(circle at 50% 30%, #6dd5ed, #2193b0);
+}
+
+/* Sunset Fluffy - Warm glow */
+body.theme-sunset .fluffy {
+  background: radial-gradient(circle at 30% 30%, #fff, #ffd89b 30%, #f5576c 70%, #f093fb 100%);
+  box-shadow:
+    0 20px 50px rgba(245, 87, 108, 0.4),
+    -12px -8px 0 -4px #f5576c,
+    12px -8px 0 -4px #f5576c,
+    -18px 0 0 -6px #ffd89b,
+    18px 0 0 -6px #ffd89b;
+  animation: floaty 6s ease-in-out infinite, fluffyBreath 3s ease-in-out infinite, furWiggle 4s ease-in-out infinite;
+}
+
+body.theme-sunset .fluffy::before,
+body.theme-sunset .fluffy::after {
+  background: radial-gradient(circle at 50% 60%, #ffd89b, #f5576c);
+  box-shadow: inset 0 -10px 20px rgba(245, 87, 108, 0.5);
+}
+
+body.theme-sunset .fluffy-face::before {
+  background: radial-gradient(circle at 50% 30%, #f5576c, #c73e5a);
+}
+
+/* Forest Fluffy - Leafy creature */
+body.theme-forest .fluffy {
+  background: radial-gradient(circle at 30% 30%, #fff, #d4fc79 30%, #96e6a1 60%, #56ab2f 100%);
+  box-shadow:
+    0 20px 50px rgba(86, 171, 47, 0.35),
+    -12px -8px 0 -4px #96e6a1,
+    12px -8px 0 -4px #96e6a1,
+    -18px 0 0 -6px #d4fc79,
+    18px 0 0 -6px #d4fc79;
+  animation: floaty 6s ease-in-out infinite, fluffyBreath 3s ease-in-out infinite, furWiggle 4s ease-in-out infinite;
+}
+
+body.theme-forest .fluffy::before,
+body.theme-forest .fluffy::after {
+  background: radial-gradient(circle at 50% 60%, #d4fc79, #96e6a1);
+  box-shadow: inset 0 -10px 20px rgba(86, 171, 47, 0.5);
+}
+
+body.theme-forest .fluffy-face::before {
+  background: radial-gradient(circle at 50% 30%, #56ab2f, #3d8c24);
+}
+
+/* Space Fluffy - Cosmic creature with stars */
+body.theme-space .fluffy {
+  background: radial-gradient(circle at 30% 30%, #928dab, #4ca1af 30%, #302b63 60%, #0f0c29 100%);
+  box-shadow:
+    0 20px 50px rgba(79, 79, 176, 0.5),
+    0 0 60px rgba(147, 112, 219, 0.3),
+    -12px -8px 0 -4px #4ca1af,
+    12px -8px 0 -4px #4ca1af,
+    -18px 0 0 -6px #928dab,
+    18px 0 0 -6px #928dab;
+  animation: floaty 6s ease-in-out infinite, spaceGlow 3s ease-in-out infinite, fluffyBreath 3s ease-in-out infinite;
+}
+
+body.theme-space .fluffy::before {
+  background: radial-gradient(circle at 50% 60%, #928dab, #4ca1af);
+  box-shadow: inset 0 -10px 20px rgba(48, 43, 99, 0.5);
+}
+
+body.theme-space .fluffy::after {
+  background: radial-gradient(circle at 50% 60%, #928dab, #4ca1af);
+  box-shadow: inset 0 -10px 20px rgba(48, 43, 99, 0.5);
+}
+
+body.theme-space .fluffy-face::before {
+  background: radial-gradient(circle at 50% 30%, #4ca1af, #302b63);
+}
+
+/* Robot Fluffy - Metallic creature */
+body.theme-robot .fluffy {
+  background: radial-gradient(circle at 30% 30%, #bdc3c7, #606c88 40%, #3a6073 70%, #16222a 100%);
+  box-shadow:
+    0 20px 50px rgba(58, 96, 115, 0.5),
+    -12px -8px 0 -4px #606c88,
+    12px -8px 0 -4px #606c88,
+    -18px 0 0 -6px #bdc3c7,
+    18px 0 0 -6px #bdc3c7;
+  border-radius: 48% 48% 45% 45%;
+  animation: floaty 6s ease-in-out infinite, robotBounce 0.5s ease-in-out infinite, fluffyBreath 3s ease-in-out infinite;
+}
+
+body.theme-robot .fluffy::before {
+  background: radial-gradient(circle at 50% 60%, #bdc3c7, #606c88);
+  box-shadow: inset 0 -10px 20px rgba(22, 34, 42, 0.5);
+  border-radius: 30% 30% 40% 40%;
+}
+
+body.theme-robot .fluffy::after {
+  background: radial-gradient(circle at 50% 60%, #bdc3c7, #606c88);
+  box-shadow: inset 0 -10px 20px rgba(22, 34, 42, 0.5);
+  border-radius: 30% 30% 40% 40%;
+}
+
+body.theme-robot .fluffy-face::before {
+  background: radial-gradient(circle at 50% 30%, #00ff88, #00cc6a);
+  box-shadow: 0 0 8px #00ff88;
+}
+
+body.theme-robot .fluffy .eye {
+  background: #00ff88;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+/* Dino Fluffy - Scaly creature with spikes */
+body.theme-dino .fluffy {
+  background: radial-gradient(circle at 30% 30%, #a8e063, #56ab2f 40%, #134e5e 80%, #11998e 100%);
+  box-shadow:
+    0 20px 50px rgba(17, 153, 142, 0.4),
+    -12px -8px 0 -4px #56ab2f,
+    12px -8px 0 -4px #56ab2f,
+    -18px 0 0 -6px #a8e063,
+    18px 0 0 -6px #a8e063;
+  border-radius: 50% 50% 45% 45%;
+  animation: floaty 6s ease-in-out infinite, fluffyBreath 3s ease-in-out infinite;
+}
+
+/* Dino spikes instead of ears */
+body.theme-dino .fluffy::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 35%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 25px solid #56ab2f;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  animation: none;
+}
+
+body.theme-dino .fluffy::after {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 30px solid #7ac142;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  animation: none;
+}
+
+body.theme-dino .fluffy-face::before {
+  background: radial-gradient(circle at 50% 30%, #56ab2f, #134e5e);
+}
+
+/* Princess Fluffy - Sparkly royal creature */
+body.theme-princess .fluffy {
+  background: radial-gradient(circle at 30% 30%, #fff, #fecfef 30%, #ff9a9e 60%, #f5576c 100%);
+  box-shadow:
+    0 20px 50px rgba(245, 87, 108, 0.35),
+    0 0 40px rgba(255, 182, 193, 0.4),
+    -12px -8px 0 -4px #ff9a9e,
+    12px -8px 0 -4px #ff9a9e,
+    -18px 0 0 -6px #fecfef,
+    18px 0 0 -6px #fecfef;
+  animation: floaty 6s ease-in-out infinite, princessSparkle 2s ease-in-out infinite, fluffyBreath 3s ease-in-out infinite;
+}
+
+body.theme-princess .fluffy::before {
+  background: radial-gradient(circle at 50% 60%, #fecfef, #ff9a9e);
+  box-shadow: inset 0 -10px 20px rgba(245, 87, 108, 0.5);
+}
+
+body.theme-princess .fluffy::after {
+  background: radial-gradient(circle at 50% 60%, #fecfef, #ff9a9e);
+  box-shadow: inset 0 -10px 20px rgba(245, 87, 108, 0.5);
+}
+
+body.theme-princess .fluffy-face::before {
+  background: radial-gradient(circle at 50% 30%, #ff9a9e, #f5576c);
+}
+
+/* Crown on princess fluffy */
+body.theme-princess .fluffy-wrap::before {
+  content: "👑";
+  position: absolute;
+  font-size: 36px;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: crownBob 3s ease-in-out infinite;
+  z-index: 10;
+}
+
+/* Unicorn Fluffy - Rainbow magical creature */
+body.theme-unicorn .fluffy {
+  background: conic-gradient(from 180deg, #a18cd1, #fbc2eb, #89f7fe, #e0c3fc, #fbc2eb, #a18cd1);
+  box-shadow:
+    0 20px 50px rgba(161, 140, 209, 0.4),
+    0 0 30px rgba(251, 194, 235, 0.3),
+    -12px -8px 0 -4px #fbc2eb,
+    12px -8px 0 -4px #fbc2eb,
+    -18px 0 0 -6px #a18cd1,
+    18px 0 0 -6px #a18cd1;
+  animation: floaty 6s ease-in-out infinite, rainbowShift 8s linear infinite, fluffyBreath 3s ease-in-out infinite;
+}
+
+body.theme-unicorn .fluffy::before {
+  background: linear-gradient(to bottom, #e0c3fc, #fbc2eb);
+  box-shadow: inset 0 -10px 20px rgba(161, 140, 209, 0.5);
+}
+
+body.theme-unicorn .fluffy::after {
+  background: linear-gradient(to bottom, #e0c3fc, #fbc2eb);
+  box-shadow: inset 0 -10px 20px rgba(161, 140, 209, 0.5);
+}
+
+body.theme-unicorn .fluffy-face::before {
+  background: radial-gradient(circle at 50% 30%, #a18cd1, #7c5bb0);
+}
+
+/* Unicorn horn */
+body.theme-unicorn .fluffy-wrap::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 40px solid;
+  border-bottom-color: #e0c3fc;
+  z-index: 10;
+  filter: drop-shadow(0 0 8px rgba(161, 140, 209, 0.6));
+}
+
+/* Theme-specific animations */
+@keyframes oceanWave {
+  0%, 100% { border-radius: 45% 55% 50% 50%; }
+  50% { border-radius: 55% 45% 52% 48%; }
+}
+
+@keyframes spaceGlow {
+  0%, 100% { box-shadow: 0 20px 50px rgba(79, 79, 176, 0.5), 0 0 60px rgba(147, 112, 219, 0.3); }
+  50% { box-shadow: 0 20px 50px rgba(79, 79, 176, 0.7), 0 0 80px rgba(147, 112, 219, 0.5); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes robotBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes princessSparkle {
+  0%, 100% { box-shadow: 0 20px 50px rgba(245, 87, 108, 0.35), 0 0 40px rgba(255, 182, 193, 0.4); }
+  50% { box-shadow: 0 20px 50px rgba(245, 87, 108, 0.5), 0 0 60px rgba(255, 182, 193, 0.6); }
+}
+
+@keyframes crownBob {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-5deg); }
+  50% { transform: translateX(-50%) translateY(-5px) rotate(5deg); }
+}
+
+@keyframes rainbowShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.fluffy.is-thinking {
+  animation: floaty 3s ease-in-out infinite, thinking 1s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(255, 165, 0, 0.6));
+}
+
+.fluffy.is-listening {
+  transform: scale(1.05);
+  animation: floaty 4s ease-in-out infinite, listening 0.8s ease-in-out infinite;
+}
+
+.fluffy.is-speaking {
+  animation: floaty 2s ease-in-out infinite, speaking 0.3s ease-in-out infinite;
+}
+
+.fluffy.is-happy {
+  animation: floaty 4s ease-in-out infinite, happyBounce 0.5s ease-in-out 3;
+}
+
+@keyframes thinking {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes listening {
+  0%, 100% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes speaking {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes happyBounce {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+.fluffy-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+/* Cute nose */
+.fluffy-face::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 14px;
+  background: radial-gradient(circle at 50% 30%, #ff8fcf, #e05a9e);
+  border-radius: 50% 50% 45% 45%;
+  bottom: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation: noseWiggle 3s ease-in-out infinite;
+}
+
+/* Rosy cheeks */
+.fluffy-face::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 30px;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 15% 50%, rgba(255, 150, 180, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 85% 50%, rgba(255, 150, 180, 0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.eye {
+  width: 28px;
+  height: 36px;
+  background: #2b2b2b;
+  border-radius: 50%;
+  position: relative;
+  animation: blink 5s infinite;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.eye::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  top: 6px;
+  left: 6px;
+}
+
+/* Theme eye colors */
+body.theme-space .eye {
+  background: #a18cd1;
+  box-shadow: 0 0 8px #a18cd1;
+}
+
+body.theme-robot .eye {
+  background: #00ff88;
+  box-shadow: 0 0 12px #00ff88;
+  border-radius: 4px;
+}
+
+body.theme-unicorn .eye {
+  background: #7c3aed;
+}
+
+body.theme-princess .eye::after {
+  background: #ff69b4;
+}
+
+.mouth {
+  width: 50px;
+  height: 20px;
+  border-radius: 0 0 30px 30px;
+  border: 4px solid #2b2b2b;
+  border-top: none;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: height 0.2s ease, background 0.3s ease;
+  background: #ff7a59;
+}
+
+/* Theme mouth colors */
+body.theme-ocean .mouth { background: #2193b0; }
+body.theme-sunset .mouth { background: #f5576c; }
+body.theme-forest .mouth { background: #56ab2f; }
+body.theme-space .mouth { background: #928dab; border-color: #e8e8e8; }
+body.theme-robot .mouth { background: #00ff88; border-color: #bdc3c7; border-radius: 0 0 8px 8px; }
+body.theme-dino .mouth { background: #ff6b6b; }
+body.theme-princess .mouth { background: #ff69b4; }
+body.theme-unicorn .mouth { background: #a18cd1; }
+
+.fluffy.is-speaking .mouth {
+  height: 36px;
+}
+
+.fluffy.is-listening .mouth {
+  height: 10px;
+}
+
+.fluffy-shine {
+  position: absolute;
+  width: 80px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  top: 30px;
+  right: 30px;
+  filter: blur(1px);
+}
+
+.fluffy-prompt {
+  font-size: 1rem;
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.status-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.status-pill {
+  background: #ffffff;
+  color: #6b6b6b;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.status-pill.active {
+  color: #1b4d9b;
+  background: #d8f2ff;
+}
+
+.status-pill.speaking {
+  color: #6a3d00;
+  background: #ffe5bf;
+}
+
+.status-pill.disabled {
+  background: #f1f1f1;
+  color: #9c9c9c;
+}
+
+.content {
+  display: grid;
+  gap: 16px;
+}
+
+.voice-launch {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+}
+
+.voice-button {
+  border: none;
+  background: linear-gradient(135deg, #ffb3d9, #9be7ff);
+  color: #2b2b2b;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 14px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(255, 122, 89, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.voice-button:active {
+  transform: scale(0.97);
+}
+
+.voice-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.voice-hint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b6b6b;
+}
+
+.chat {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  min-height: 280px;
+  display: grid;
+  gap: 12px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.stickers {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 16px;
+}
+
+.stickers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stickers-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.stickers-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b6b6b;
+}
+
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.sticker-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.sticker-card.earned {
+  border: 2px solid rgba(255, 122, 89, 0.4);
+}
+
+.sticker-card.locked {
+  opacity: 0.55;
+  filter: grayscale(0.6);
+}
+
+.sticker-card:hover {
+  transform: translateY(-2px);
+}
+
+.sticker-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffd3a5, #fd6585);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.sticker-card.locked .sticker-icon {
+  filter: grayscale(100%) opacity(0.4);
+}
+
+.sticker-card.earned .sticker-icon {
+  filter: none;
+  animation: stickerPop 0.4s ease;
+}
+
+@keyframes stickerPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.sticker-title {
+  font-weight: 600;
+}
+
+.sticker-blurb {
+  font-size: 0.85rem;
+  color: #6b6b6b;
+}
+
+/* Memories Section */
+.memories-section {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+.memories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.memories-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.memories-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b6b6b;
+}
+
+.memories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.memory-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  animation: memoryPop 0.3s ease;
+}
+
+.memory-chip .remove-memory {
+  background: rgba(255,255,255,0.3);
+  border: none;
+  color: #fff;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.memory-chip .remove-memory:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.no-memories {
+  color: #999;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0;
+}
+
+@keyframes memoryPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.badge-spark {
+  background: linear-gradient(135deg, #ffe29f, #ffa99f);
+}
+
+.badge-rocket {
+  background: linear-gradient(135deg, #9be7ff, #7ec8ff);
+}
+
+.badge-ocean {
+  background: linear-gradient(135deg, #a3f7bf, #6ee7f8);
+}
+
+.badge-planet {
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+}
+
+.badge-galaxy {
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+}
+
+.badge-super {
+  background: linear-gradient(135deg, #fddb92, #d1fdff);
+}
+
+.message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.message.user {
+  background: #ffe9c7;
+  justify-self: end;
+  border-bottom-right-radius: 4px;
+}
+
+.message.assistant {
+  background: #e6f4ff;
+  justify-self: start;
+  border-bottom-left-radius: 4px;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.composer input {
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  font-family: inherit;
+  min-width: 0;
+  width: 100%;
+}
+
+.composer:focus-within {
+  outline: 3px solid rgba(90, 120, 255, 0.55);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(90, 120, 255, 0.7);
+  outline-offset: 2px;
+}
+
+.send:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.mic {
+  border: none;
+  background: #ffe0f7;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.mic:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mic.active {
+  background: #b8f0ff;
+  transform: scale(1.05);
+}
+
+.send {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.settings {
+  margin-top: 18px;
+}
+
+.settings details {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.settings summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.settings-grid label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.prompt-label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.prompt-label textarea {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.settings-card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 16px;
+}
+
+.settings-card h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.toggle-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.settings-actions button {
+  border: none;
+  background: #c3f0ff;
+  color: #1b4d9b;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.test-output {
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.settings-grid input[type="text"],
+.settings-grid input[type="number"] {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  font-family: inherit;
+}
+
+.settings-grid select,
+.settings-grid textarea {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.parent-settings .settings-grid {
+  margin-top: 12px;
+}
+
+.parent-note {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: #6c6c6c;
+}
+
+.parent-lock {
+  display: grid;
+  gap: 10px;
+}
+
+.parent-lock-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.parent-lock-form input {
+  flex: 1;
+  min-width: 140px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  font-family: inherit;
+}
+
+.parent-lock-form button {
+  border: none;
+  background: #ffd9b8;
+  color: #5a3d00;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.parent-controls {
+  display: none;
+  margin-top: 12px;
+}
+
+.parent-controls.active {
+  display: block;
+}
+
+.parent-section {
+  margin-top: 16px;
+}
+
+.parent-section h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.parent-settings button {
+  border: none;
+  background: #ffd9b8;
+  color: #5a3d00;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.sticker-upload-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.sticker-upload-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  display: grid;
+  gap: 10px;
+}
+
+.sticker-preview {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+}
+
+.sticker-upload-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.sticker-upload-actions input[type=\"file\"] {
+  font-family: inherit;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.report-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.report-actions button {
+  border: none;
+  background: #ffe1a8;
+  color: #5a3d00;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.report-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  display: grid;
+  gap: 8px;
+}
+
+.report-card h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.report-meta {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+}
+
+.report-muted {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b6b6b;
+}
+
+.report-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: #4a4a4a;
+}
+
+.level-card {
+  width: min(260px, 90vw);
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 12px 14px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+
+.level-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.level-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #f1f1f1;
+  overflow: hidden;
+}
+
+.level-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff7a59, #ffb347, #7ad9ff);
+  transition: width 0.4s ease;
+}
+
+.level-reward {
+  font-size: 0.85rem;
+  color: #6b4c00;
+}
+
+.reward-burst {
+  opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  background: #fff1a8;
+  color: #5a3d00;
+  padding: 10px 16px;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(255, 168, 0, 0.25);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.reward-burst.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.fluffy.level-up {
+  animation: levelPop 0.8s ease;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+@keyframes fluffyBreath {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes furWiggle {
+  0%, 100% {
+    border-radius: 50% 50% 48% 48%;
+  }
+  25% {
+    border-radius: 48% 52% 50% 46%;
+  }
+  50% {
+    border-radius: 52% 48% 46% 50%;
+  }
+  75% {
+    border-radius: 46% 50% 52% 48%;
+  }
+}
+
+@keyframes earWiggleLeft {
+  0%, 100% {
+    transform: rotate(-20deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  60% {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes earWiggleRight {
+  0%, 100% {
+    transform: rotate(20deg);
+  }
+  30% {
+    transform: rotate(25deg);
+  }
+  60% {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes noseWiggle {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+@keyframes tailWag {
+  0%, 100% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes levelPop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.15) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 720px) {
+  .composer {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .send {
+    grid-column: span 2;
+  }
+}

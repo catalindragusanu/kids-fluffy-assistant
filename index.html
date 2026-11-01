@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A kid-safe question buddy that answers curious questions with a local AI model." />
+    <title>Fluffy Question Buddy</title>
+    <link rel="stylesheet" href="styles.css?v=8" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Curious minds welcome</p>
+          <h1>Fluffy Question Buddy</h1>
+          <p class="subtitle">Ask anything. Fluffy helps you learn and loves extra questions.</p>
+          <div class="profile-bar">
+            <label>
+              Kid profile
+              <select id="profileSelect"></select>
+            </label>
+            <span class="profile-hint" id="profileHint"></span>
+            <button type="button" class="app-theme-button" id="appThemeButton">🎨 Theme</button>
+          </div>
+        </div>
+        <div class="fluffy-wrap">
+          <div class="fluffy" id="fluffy">
+            <div class="fluffy-face">
+              <div class="eye eye-left"></div>
+              <div class="eye eye-right"></div>
+              <div class="mouth"></div>
+            </div>
+            <div class="fluffy-shine"></div>
+          </div>
+          <div class="fluffy-prompt" id="fluffyPrompt">Ask me a new question!</div>
+          <div class="status-row" aria-live="polite">
+            <span class="status-pill" id="listenStatus">Mic ready</span>
+            <span class="status-pill" id="speakStatus">Voice ready</span>
+          </div>
+          <div class="level-card" id="levelCard">
+            <div class="level-header">
+              <span id="levelLabel">Level 1</span>
+              <span id="levelProgressText">0/5 questions</span>
+            </div>
+            <div class="level-bar">
+              <div class="level-fill" id="levelFill"></div>
+            </div>
+            <div class="level-reward" id="levelReward">Ask 5 questions to level up!</div>
+          </div>
+          <div class="reward-burst" id="rewardBurst">✨ Level Up! ✨</div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversation with Fluffy"></section>
+
+        <form class="composer" id="composer">
+          <button type="button" class="mic" id="micButton" title="Ask by voice" aria-label="Ask by voice">🎤</button>
+          <input
+            id="userInput"
+            type="text"
+            aria-label="Type your question"
+            maxlength="500"
+            placeholder="Type a question like: Why do stars twinkle?"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="send">Ask</button>
+        </form>
+
+        <section class="stickers">
+          <div class="stickers-header">
+            <h2>Sticker Cabinet</h2>
+            <p id="stickerCount">0/0 stickers collected</p>
+          </div>
+          <div class="sticker-grid" id="stickerGrid"></div>
+        </section>
+
+        <section class="memories-section">
+          <div class="memories-header">
+            <h2>🧠 Fluffy's Memory</h2>
+            <p id="memoryCount">0 things remembered</p>
+          </div>
+          <div class="memories-list" id="memoriesList">
+            <p class="no-memories">Fluffy doesn't know much about you yet. Chat more and share your favorite things!</p>
+          </div>
+        </section>
+      </main>
+      <div class="parent-link">
+        <a class="parent-link-button" href="settings.html">Parent Settings</a>
+      </div>
+    </div>
+
+    <script type="module" src="app.js?v=8"></script>
+  </body>
+</html>

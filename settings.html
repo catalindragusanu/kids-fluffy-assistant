@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fluffy Settings</title>
+    <link rel="stylesheet" href="styles.css?v=8" />
+  </head>
+  <body>
+    <div class="app settings-page">
+      <header class="hero settings-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Parent & System</p>
+          <h1>Fluffy Settings</h1>
+          <p class="subtitle">Manage Ollama Cloud, safety, profiles, and rewards from one place.</p>
+          <a class="back-link" href="index.html">Back to Fluffy</a>
+        </div>
+        <div class="settings-hero-card">
+          <h2>Quick tips</h2>
+          <ul>
+            <li>Add your Ollama API key under System.</li>
+            <li>Use kid-safe mode for younger kids.</li>
+            <li>Update profiles for each child.</li>
+          </ul>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="settings-card is-hidden" id="systemCard">
+          <h2>System</h2>
+          <div class="settings-grid">
+            <label>
+              Ollama API key
+              <input id="apiKey" type="password" autocomplete="off" placeholder="Paste your Ollama Cloud key" />
+            </label>
+            <label>
+              Model name
+              <input id="modelName" type="text" value="local-model" />
+            </label>
+            <label>
+              Temperature
+              <input id="temperature" type="range" min="0" max="1" step="0.1" value="0.6" />
+              <span id="temperatureValue">0.6</span>
+            </label>
+            <label>
+              Max tokens
+              <input id="maxTokens" type="number" min="64" max="512" value="256" />
+            </label>
+          </div>
+          <label class="prompt-label">
+            System prompt
+            <textarea
+              id="systemPrompt"
+              rows="10"
+              placeholder="System prompt for Fluffy (kid-safe rules, tone, etc.)"
+            ></textarea>
+          </label>
+          <div class="toggle-row">
+            <label class="toggle">
+              <input type="checkbox" id="kidModeDefault" checked />
+              <span>Kid-safe mode</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="speakDefault" checked />
+              <span>Speak answers</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="voiceInputDefault" checked />
+              <span>Voice input</span>
+            </label>
+          </div>
+          <div class="settings-grid">
+            <label>
+              Voice selector (browser voices)
+              <select id="voiceSelect"></select>
+            </label>
+          </div>
+          <div class="settings-actions">
+            <button type="button" id="testConnection">Test connection</button>
+            <span id="connTestStatus" class="status-pill">Not tested</span>
+          </div>
+          <pre class="test-output" id="connTestOutput">Run the test to see details here.</pre>
+        </section>
+
+        <section class="settings-card parent-settings">
+          <h2>Parent Controls</h2>
+          <div class="parent-lock" id="parentLock">
+            <p class="parent-note" id="parentLockMessage">Parent settings are locked.</p>
+            <div class="parent-lock-form" id="parentLockForm">
+              <input id="parentPinInput" type="password" inputmode="numeric" placeholder="Enter PIN" />
+              <button type="button" id="unlockParent">Unlock</button>
+            </div>
+            <div class="parent-setup-form" id="parentSetupForm">
+              <p class="parent-note">Create a PIN to lock these settings on this device.</p>
+              <div class="parent-lock-form">
+                <input id="parentPinCreate" type="password" inputmode="numeric" placeholder="New PIN" />
+                <input id="parentPinConfirm" type="password" inputmode="numeric" placeholder="Confirm PIN" />
+                <button type="button" id="setParentPin">Set PIN</button>
+              </div>
+            </div>
+          </div>
+          <div class="parent-controls" id="parentControls">
+            <p class="parent-note" id="parentControlsMessage" role="status">Unlocked for this session.</p>
+            <div class="settings-grid">
+              <label>
+                Profile
+                <select id="profileSelect"></select>
+              </label>
+              <label>
+                Reading level
+                <select id="readingLevel">
+                  <option value="early">Early reader (3-5)</option>
+                  <option value="growing">Growing reader (6-8)</option>
+                  <option value="confident">Confident reader (9-10)</option>
+                </select>
+              </label>
+              <label>
+                Blocked topics (comma or new line)
+                <textarea id="blockedTopics" rows="4" placeholder="violence, scary movies, etc."></textarea>
+              </label>
+              <button type="button" id="resetProgress">Reset level progress</button>
+              <button type="button" id="clearHistory">Clear chat history</button>
+            </div>
+
+            <div class="parent-section">
+              <h3>Profiles</h3>
+              <div class="settings-grid">
+                <label>
+                  Profile name
+                  <input id="profileNameInput" type="text" placeholder="Kid name" />
+                </label>
+                <button type="button" id="addProfile">Add new profile</button>
+                <button type="button" id="renameProfile">Rename current</button>
+                <button type="button" id="deleteProfile">Delete current</button>
+              </div>
+            </div>
+
+            <div class="parent-section">
+              <h3>Sticker Themes</h3>
+              <div class="settings-grid">
+                <label>
+                  Sticker theme
+                  <select id="stickerTheme"></select>
+                </label>
+                <button type="button" id="clearStickerArt">Clear custom sticker art</button>
+              </div>
+              <div class="sticker-upload-grid" id="stickerUploadGrid"></div>
+            </div>
+
+            <div class="parent-section">
+              <h3>Parent Report</h3>
+              <div class="report-actions">
+                <button type="button" id="downloadReportCsv">Download CSV</button>
+                <button type="button" id="printReportPdf">Print / Save PDF</button>
+              </div>
+              <div class="report-grid" id="parentReport"></div>
+            </div>
+
+            <div class="parent-section">
+              <h3>PIN</h3>
+              <div class="settings-grid">
+                <label>
+                  New PIN
+                  <input id="parentPinChange" type="password" inputmode="numeric" placeholder="New PIN" />
+                </label>
+                <label>
+                  Confirm PIN
+                  <input id="parentPinChangeConfirm" type="password" inputmode="numeric" placeholder="Confirm PIN" />
+                </label>
+                <button type="button" id="changeParentPin">Update PIN</button>
+                <button type="button" id="lockParent">Lock settings</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="settings.js?v=8"></script>
+  </body>
+</html>
